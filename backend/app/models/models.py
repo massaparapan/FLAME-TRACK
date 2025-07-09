@@ -19,4 +19,3 @@ class Plan(Base):
     price = Column(String(45), nullable=False)
     features = Column(JSON, nullable=True)
     dashboard_id = Column(String(255), nullable=False)
-

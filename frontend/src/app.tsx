@@ -17,11 +17,12 @@ export default function App() {
       
       <Stack.Navigator
         initialRouteName="MainMenu"
+  
         screenOptions={{
+          headerTitleAlign: 'center',
           headerStyle: { backgroundColor: colors.primary[500] },
           headerTintColor: "#ffffff",
           headerTitleStyle: { fontWeight: "bold" },
-          headerTitleAlign: 'center'
         }}
       >
         <Stack.Screen
