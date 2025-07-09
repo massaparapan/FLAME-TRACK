@@ -41,5 +41,5 @@ CREATE TABLE user_devices (
 
 -- Se crea los planes
 INSERT INTO plans (name, price, description, dashboard_id) VALUES
-('free', 'GRATIS', 'Acceso básico a las funciones principales', 'df348fc0-47b2-11f0-a76f-af9873efe2ab'),
-('pro', '50.000', 'Funciones avanzadas como historial', 'df348fc0-47b2-11f0-a76f-af9873efe2ab');
+('FREE', 'GRATIS', 'Acceso básico a las funciones principales', 'df348fc0-47b2-11f0-a76f-af9873efe2ab'),
+('PRO', '50.000', 'Funciones avanzadas como historial', 'df348fc0-47b2-11f0-a76f-af9873efe2ab');
