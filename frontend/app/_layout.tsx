@@ -1,6 +1,6 @@
-import PanelScreen from '@/src/presentation/screen/PanelScreen';
+import MenuScreen from '@/src/presentation/screen/MenuScreen';
 import React from 'react';
 
 export default function HomeScreen() {
-  return <PanelScreen />;
+  return <MenuScreen/>;
 }
