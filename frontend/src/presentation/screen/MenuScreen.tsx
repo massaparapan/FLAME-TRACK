@@ -14,38 +14,21 @@ const MainMenu = () => {
   const menuItems = [
     {
       id: 1,
-      title: 'Dashboard IoT',
+      title: 'Dashboard',
       icon: 'dashboard',
+      onPress: () => console.log('Dashboard'),
     },
     {
       id: 2,
-      title: 'Dispositivos',
-      icon: 'devices',
-      onPress: () => console.log('Dispositivos'),
-    },
-    {
-      id: 3,
       title: 'Configuración',
       icon: 'settings',
       onPress: () => console.log('Configuración'),
     },
     {
-      id: 4,
-      title: 'Reportes',
-      icon: 'assessment',
-      onPress: () => console.log('Reportes'),
-    },
-    {
-      id: 5,
-      title: 'Alertas',
-      icon: 'notifications',
-      onPress: () => console.log('Alertas'),
-    },
-    {
-      id: 6,
-      title: 'Usuarios',
-      icon: 'people',
-      onPress: () => console.log('Usuarios'),
+      id: 3,
+      title: 'Planes',
+      icon: 'layers',
+      onPress: () => console.log('Planes'),
     },
   ];
 
@@ -70,11 +53,6 @@ const MainMenu = () => {
             <Icon name="chevron-right" size={20} color="#999" />
           </TouchableOpacity>
         ))}
-      </View>
-
-      {/* Footer */}
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>© 2024 CEISUFRO</Text>
       </View>
     </SafeAreaView>
   );
@@ -105,7 +83,8 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     flex: 1,
-    paddingTop: 20,
+    justifyContent: 'center',
+    alignContent: 'center'
   },
   menuItem: {
     flexDirection: 'row',
