@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import {
     SafeAreaView,
@@ -9,33 +11,54 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+type RootStackParamList = {
+  MainMenu: undefined;
+  Dashboard: undefined;
+  Settings: undefined;
+  Plans: undefined;
+};
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+interface MenuItem {
+  id: number;
+  title: string;
+  icon: string;
+  onPress: () => void;
+}
+
 const MainMenu = () => {
-  
-  const menuItems = [
+  const navigation = useNavigation<NavigationProp>();
+
+  const menuItems: MenuItem[] = [
     {
       id: 1,
       title: 'Dashboard',
       icon: 'dashboard',
-      onPress: () => console.log('Dashboard'),
+      onPress: () => navigation.navigate('Dashboard'),
     },
     {
       id: 2,
       title: 'Configuración',
       icon: 'settings',
-      onPress: () => console.log('Configuración'),
+      onPress: () => {
+        console.log('Configuración');
+      },
     },
     {
       id: 3,
       title: 'Planes',
       icon: 'layers',
-      onPress: () => console.log('Planes'),
+      onPress: () => {
+        console.log('Planes');
+      },
     },
   ];
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-      
+     
       <View style={styles.header}>
         <Text style={styles.headerTitle}>CEISUFRO IoT</Text>
         <Text style={styles.headerSubtitle}>Sistema de Control</Text>
@@ -47,6 +70,7 @@ const MainMenu = () => {
             key={item.id}
             style={styles.menuItem}
             onPress={item.onPress}
+            activeOpacity={0.7}
           >
             <Icon name={item.icon} size={24} color="#333" style={styles.icon} />
             <Text style={styles.menuText}>{item.title}</Text>
@@ -54,6 +78,7 @@ const MainMenu = () => {
           </TouchableOpacity>
         ))}
       </View>
+
     </SafeAreaView>
   );
 };
@@ -84,7 +109,7 @@ const styles = StyleSheet.create({
   menuContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignContent: 'center'
+    paddingVertical: 20,
   },
   menuItem: {
     flexDirection: 'row',
