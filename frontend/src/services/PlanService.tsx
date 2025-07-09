@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000/api/plans";
+const BASE_URL = "http://192.168.1.7:8000/api/plans";
 
 export const getPlans = async () => {
   const res = await fetch(`${BASE_URL}`);
