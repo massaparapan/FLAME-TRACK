@@ -1,4 +1,4 @@
-import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
@@ -8,7 +8,6 @@ const ThingBoardDashboard = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <WebView
         source={{ uri: dashboardUrl }}
         startInLoadingState={true}

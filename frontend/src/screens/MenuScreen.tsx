@@ -1,8 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React from 'react';
-import { MenuItem } from '../types/menuItem';
-
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React from "react";
 import {
   SafeAreaView,
   StatusBar,
@@ -10,8 +8,9 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import { MenuItem } from "../types/menuItem";
 
 type RootStackParamList = {
   MainMenu: undefined;
@@ -28,25 +27,23 @@ const MainMenu = () => {
   const menuItems: MenuItem[] = [
     {
       id: 1,
-      title: 'Dashboard',
-      icon: 'dashboard',
-      onPress: () => navigation.navigate('Dashboard'),
+      title: "Dashboard",
+      icon: "dashboard",
+      onPress: () => navigation.navigate("Dashboard"),
     },
     {
       id: 2,
-      title: 'Configuración',
-      icon: 'settings',
+      title: "Configuración",
+      icon: "settings",
       onPress: () => {
-        console.log('Configuración');
+        console.log("Configuración");
       },
     },
     {
       id: 3,
-      title: 'Planes',
-      icon: 'layers',
-      onPress: () => {
-        console.log('Planes');
-      },
+      title: "Planes",
+      icon: "layers",
+      onPress: () => navigation.navigate("Plans"),
     },
   ];
 
@@ -68,7 +65,6 @@ const MainMenu = () => {
           </TouchableOpacity>
         ))}
       </View>
-
     </SafeAreaView>
   );
 };
@@ -76,23 +72,23 @@ const MainMenu = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
   menuContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingVertical: 20,
   },
   menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
     padding: 16,
     marginHorizontal: 20,
     marginBottom: 10,
     borderRadius: 8,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
@@ -103,18 +99,18 @@ const styles = StyleSheet.create({
   menuText: {
     flex: 1,
     fontSize: 16,
-    color: '#333',
-    fontWeight: '500',
+    color: "#333",
+    fontWeight: "500",
   },
   footer: {
     padding: 20,
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    alignItems: "center",
+    backgroundColor: "#ffffff",
     borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
+    borderTopColor: "#e0e0e0",
   },
   footerText: {
-    color: '#999',
+    color: "#999",
     fontSize: 12,
   },
 });

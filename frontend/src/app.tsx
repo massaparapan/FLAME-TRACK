@@ -1,33 +1,43 @@
-import DashboardScreen from '@/src/screens//DashboardScreen';
-import MainMenu from '@/src/screens/MenuScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
-import { colors } from './constans/colors';
-import { RootStackParamList } from './types/navigation';
+import DashboardScreen from "@/src/screens//DashboardScreen";
+import MainMenu from "@/src/screens/MenuScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { StatusBar } from "react-native";
+import { colors } from "./constans/colors";
+import PlansScreen from "./screens/PlansScreen";
+import { RootStackParamList } from "./types/navigation";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator 
+      <StatusBar/>
+      
+      <Stack.Navigator
         initialRouteName="MainMenu"
         screenOptions={{
           headerStyle: { backgroundColor: colors.primary[500] },
-          headerTintColor: '#ffffff',
-          headerTitleStyle: { fontWeight: 'bold' },
+          headerTintColor: "#ffffff",
+          headerTitleStyle: { fontWeight: "bold" },
+          headerTitleAlign: 'center'
         }}
       >
         <Stack.Screen
           name="MainMenu"
           component={MainMenu}
-          options={{ title: 'Menú Principal' }}
+          options={{ title: "Menú Principal" }}
         />
         <Stack.Screen
           name="Dashboard"
           component={DashboardScreen}
-          options={{ title: 'Dashboard' }}
+          options={{ title: "Dashboard" }}
+        />
+        <Stack.Screen
+          name="Plans"
+          component={PlansScreen}
+          options={{ title: "Planes" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
