@@ -1,4 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button } from "@react-navigation/elements";
+import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../constans/colors";
 
@@ -7,8 +8,6 @@ type CardPlanProps = {
   description: string;
   price: string;
   features: string[];
-  onSelect?: () => void;
-  isSelected?: boolean;
 };
 
 const CardPlanComponent = ({
@@ -16,69 +15,41 @@ const CardPlanComponent = ({
   description,
   price,
   features,
-  onSelect,
-  isSelected = false,
 }: CardPlanProps) => {
   return (
-    <View style={[styles.container, isSelected && styles.selectedContainer]}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Icon
           name={title === "FREE" ? "star-outline" : "star"}
           size={32}
-          color={isSelected ? colors.primary[500] : colors.primary[500]}
+          color={colors.primary[500]}
         />
-        <Text style={[styles.title, isSelected && styles.selectedTitle]}>
-          {title}
-        </Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
 
       <View style={styles.priceContainer}>
-        <Text style={[styles.price, isSelected && styles.selectedPrice]}>
-          {price}
-        </Text>
+        <Text style={styles.price}>{price}</Text>
         {title === "FREE" && (
           <Text style={styles.priceSubtext}>Para siempre</Text>
         )}
         {title === "PRO" && <Text style={styles.priceSubtext}>CLP / mes</Text>}
       </View>
+
       <Text style={styles.description}>{description}</Text>
 
       <View style={styles.featuresContainer}>
         <Text style={styles.featuresTitle}>Características:</Text>
         {features.map((feature, index) => (
           <View key={index} style={styles.featureItem}>
-            <Icon
-              name="check-circle"
-              size={18}
-              color={isSelected ? colors.primary[500] : colors.primary[500]}
-            />
-            <Text
-              style={[
-                styles.featureText,
-                isSelected && styles.selectedFeatureText,
-              ]}
-            >
-              {feature}
-            </Text>
+            <Icon name="check-circle" size={18} color={colors.primary[500]} />
+            <Text style={styles.featureText}>{feature}</Text>
           </View>
         ))}
       </View>
-
-      {onSelect && (
-        <TouchableOpacity
-          style={[styles.selectButton, isSelected && styles.selectedButton]}
-          onPress={onSelect}
-        >
-          <Text
-            style={[
-              styles.selectButtonText,
-              isSelected && styles.selectedButtonText,
-            ]}
-          >
-            {isSelected ? "Seleccionado" : "Seleccionar"}
-          </Text>
-        </TouchableOpacity>
-      )}
+        
+      <Button>
+        Contratar
+      </Button>
     </View>
   );
 };
@@ -92,18 +63,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: "#fff",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-  },
-  selectedContainer: {
-    borderColor: colors.primary[500],
-    backgroundColor: colors.primary[500],
-    borderWidth: 3,
   },
   header: {
     flexDirection: "row",
@@ -117,9 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: colors.primary[500],
   },
-  selectedTitle: {
-    color: colors.primary[500],
-  },
   priceContainer: {
     alignItems: "center",
     marginBottom: 16,
@@ -127,9 +87,6 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: "bold",
     fontSize: 32,
-    color: colors.primary[500],
-  },
-  selectedPrice: {
     color: colors.primary[500],
   },
   priceSubtext: {
@@ -164,28 +121,6 @@ const styles = StyleSheet.create({
     color: "#555",
     flex: 1,
     lineHeight: 20,
-  },
-  selectedFeatureText: {
-    color: colors.primary[500],
-  },
-  selectButton: {
-    backgroundColor: colors.primary[500],
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  selectedButton: {
-    backgroundColor: colors.primary[500],
-  },
-  selectButtonText: {
-    color: "#fff",
-    fontWeight: "600",
-    fontSize: 16,
-  },
-  selectedButtonText: {
-    color: "#fff",
   },
 });
 
