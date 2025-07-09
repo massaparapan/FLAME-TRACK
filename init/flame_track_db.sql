@@ -9,7 +9,8 @@ CREATE TABLE plans (
   name VARCHAR(45) NOT NULL,
   description VARCHAR(255),
   price VARCHAR(45) NOT NULL,
-  dashboard_id VARCHAR(255) NOT NULL -- comentario
+  features JSON,
+  dashboard_id VARCHAR(255) NOT NULL 
 );
 
 CREATE TABLE devices (
@@ -40,6 +41,8 @@ CREATE TABLE user_devices (
 -- ####################################################################
 
 -- Se crea los planes
-INSERT INTO plans (name, price, description, dashboard_id) VALUES
-('FREE', 'GRATIS', 'Acceso básico a las funciones principales', 'df348fc0-47b2-11f0-a76f-af9873efe2ab'),
-('PRO', '50.000', 'Funciones avanzadas como historial', 'df348fc0-47b2-11f0-a76f-af9873efe2ab');
+INSERT INTO plans (name, price, description, dashboard_id, features) VALUES
+('FREE', 'GRATIS', 'Acceso básico a las funciones principales.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab', 
+ '["Monitoreo en tiempo real.", "Notificaciones push.", "Visualización intensidad."]'::json),
+('PRO', '50.000', 'Funciones avanzadas como historial.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab',
+ '["Estadísticas avanzadas.", "Botón de pánico.", "Todas las funcionalidades del plan FREE."]'::json);

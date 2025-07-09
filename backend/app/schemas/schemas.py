@@ -1,5 +1,5 @@
-from pydantic import BaseModel, EmailStr
-from typing import List, Optional
+from pydantic import BaseModel, EmailStr, Field
+from typing import Any, List, Optional
 
 class UserBase(BaseModel):
     username: str
@@ -9,6 +9,7 @@ class PlanBase(BaseModel):
     name: str
     description: str
     price: str
+    features: Any
 
 class UserCreate(UserBase):
     password: str

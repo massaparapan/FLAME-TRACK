@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
+from sqlalchemy import JSON, Column, Integer, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -17,5 +17,6 @@ class Plan(Base):
     name = Column(String(45), unique=True, index=True, nullable=False)
     description = Column(String(255), unique=True, index=True, nullable=False)
     price = Column(String(45), nullable=False)
+    features = Column(JSON, nullable=True)
     dashboard_id = Column(String(255), nullable=False)
 
