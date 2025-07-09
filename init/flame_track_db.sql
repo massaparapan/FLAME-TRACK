@@ -9,7 +9,7 @@ CREATE TABLE plans (
   name VARCHAR(45) NOT NULL,
   description VARCHAR(255),
   price VARCHAR(45) NOT NULL,
-  panel_id VARCHAR(255) NOT NULL -- comentario
+  dashboard_id VARCHAR(255) NOT NULL -- comentario
 );
 
 CREATE TABLE devices (
@@ -40,6 +40,6 @@ CREATE TABLE user_devices (
 -- ####################################################################
 
 -- Se crea los planes
-INSERT INTO plans (name, price, description, panel_id) VALUES
-('free', 'GRATIS', 'Acceso básico a las funciones principales', 'ID_DEL_DASHBOARD_GRATUITO'),
-('pro', '50.000', 'Funciones avanzadas como historial', 'ID_DEL_DASHBOARD_PROFESIONAL');
+INSERT INTO plans (name, price, description, dashboard_id) VALUES
+('free', 'GRATIS', 'Acceso básico a las funciones principales', 'df348fc0-47b2-11f0-a76f-af9873efe2ab'),
+('pro', '50.000', 'Funciones avanzadas como historial', 'df348fc0-47b2-11f0-a76f-af9873efe2ab');
