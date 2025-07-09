@@ -1,5 +1,5 @@
-import DashboardScreen from '@/src/presentation/screen/DashboardScreen';
-import MainMenu from '@/src/presentation/screen/MenuScreen';
+import DashboardScreen from '@/src/screens//DashboardScreen';
+import MainMenu from '@/src/screens/MenuScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
@@ -13,7 +13,7 @@ export default function App() {
       <Stack.Navigator 
         initialRouteName="MainMenu"
         screenOptions={{
-          headerStyle: { backgroundColor: '#f4511e' },
+          headerStyle: { backgroundColor: '#2074b4' },
           headerTintColor: '#fff',
           headerTitleStyle: { fontWeight: 'bold' },
         }}
