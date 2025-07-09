@@ -5,13 +5,27 @@ class UserBase(BaseModel):
     username: str
     email: EmailStr
 
+class PlanBase(BaseModel):
+    name: str
+    description: str
+    price: str
+
 class UserCreate(UserBase):
     password: str
 
 class User(UserBase):
     id: int
-    class Config:
-        orm_mode = True
+
+    model_config = {
+        "from_attributes": True
+    }
+
+class Plan(PlanBase):
+    id: int
+    
+    model_config = {
+        "from_attributes": True
+    }
 
 class Token(BaseModel):
     access_token: str

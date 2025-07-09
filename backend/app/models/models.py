@@ -10,3 +10,12 @@ class User(Base):
     username = Column(String(45), unique=True, index=True, nullable=False)
     email = Column(String(255), unique=True, index=True, nullable=False)
     password = Column(String(255), nullable=False)
+
+class Plan(Base): 
+    __tablename__ = "plans"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(45), unique=True, index=True, nullable=False)
+    description = Column(String(255), unique=True, index=True, nullable=False)
+    price = Column(String(45), nullable=False)
+    dashboard_id = Column(String(255), nullable=False)
+
