@@ -8,7 +8,7 @@ Los usuarios interactúan con el sistema a través de una aplicación móvil que
 
 ### Características Principales
 
-#### Plan Gratuito (Free)
+#### Plan Free
 * **Monitoreo en Tiempo Real:** Visualiza el estado actual del sensor (Seguro, Precaución, Peligro).
 * **Notificaciones Push:** Recibe alertas instantáneas en tu móvil cuando se detecta una llama.
 * **Visualización de Intensidad:** Observa el nivel de radiación IR detectado.
