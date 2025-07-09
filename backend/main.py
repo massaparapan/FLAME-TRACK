@@ -4,7 +4,6 @@ import requests
 
 app = FastAPI()
 
-# Cambia esto con la URL de tu servidor de ThingsBoard
 THINGSBOARD_URL = "http://iot.ceisufro.cl:8080"
 USERNAME = "e.ortiz06@ufromail.cl"
 PASSWORD = "efe12312"
