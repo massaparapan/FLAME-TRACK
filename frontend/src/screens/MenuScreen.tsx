@@ -53,10 +53,6 @@ const MainMenu = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-     
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Sistema de Control</Text>
-      </View>
 
       <View style={styles.menuContainer}>
         {menuItems.map((item) => (
@@ -81,17 +77,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
-  },
-  header: {
-    paddingTop: 30,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 5,
   },
   menuContainer: {
     flex: 1,

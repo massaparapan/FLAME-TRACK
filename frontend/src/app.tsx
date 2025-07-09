@@ -3,6 +3,7 @@ import MainMenu from '@/src/screens/MenuScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { colors } from './constans/colors';
 import { RootStackParamList } from './types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -13,8 +14,8 @@ export default function App() {
       <Stack.Navigator 
         initialRouteName="MainMenu"
         screenOptions={{
-          headerStyle: { backgroundColor: '#2074b4' },
-          headerTintColor: '#fff',
+          headerStyle: { backgroundColor: colors.primary[500] },
+          headerTintColor: '#ffffff',
           headerTitleStyle: { fontWeight: 'bold' },
         }}
       >
