@@ -42,7 +42,7 @@ CREATE TABLE user_devices (
 
 -- Se crea los planes
 INSERT INTO plans (name, price, description, dashboard_id, features) VALUES
-('FREE', 'GRATIS', 'Acceso básico a las funciones principales.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab', 
+('FREE', 'GRATIS', 'Acceso básico a las funciones principales.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab?publicId=43598140-420e-11f0-a760-c34b83368612', 
  '["Monitoreo en tiempo real.", "Notificaciones push.", "Visualización intensidad."]'::json),
-('PRO', '50.000', 'Funciones avanzadas como historial.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab',
+('PRO', '50.000', 'Funciones avanzadas como historial.', 'f1e3b530-5d59-11f0-a77a-ad56499633ab?publicId=43598140-420e-11f0-a760-c34b83368612',
  '["Estadísticas avanzadas.", "Botón de pánico.", "Todas las funcionalidades del plan FREE."]'::json);

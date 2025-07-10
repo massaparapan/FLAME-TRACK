@@ -9,6 +9,7 @@ class PlanBase(BaseModel):
 
 class Plan(PlanBase):
     id: int
+    dashboard_id: str
    
     model_config = {
         "from_attributes": True
