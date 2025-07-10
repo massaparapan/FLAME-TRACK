@@ -33,4 +33,16 @@ export const userService = {
       throw new Error("Error al actualizar plan del usuario");
     }
   },
+
+  getMyDevices: async (): Promise<any[]> => {
+    try {
+      const response = await makeAuthenticatedRequest(`${API_URL}/users/me/devices`, {
+        method: "GET",
+      });
+      return response;
+    } catch (error: any) {
+      console.error("Error al obtener dispositivos del usuario:", error);
+      throw new Error(error?.message || "Error al obtener dispositivos del usuario");
+    }
+  },
 };

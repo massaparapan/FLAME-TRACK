@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, Text, View, Dimensions } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  View,
+  Dimensions,
+} from "react-native";
 import CardPlanComponent from "./CardPlanComponent";
-import { planService } from "@/src/services/PlanService";
+import { planService } from "../services/panelService";
 
 const { width } = Dimensions.get("window");
 
-const ITEM_WIDTH = width * 0.8; 
+const ITEM_WIDTH = width * 0.8;
 const SIDE_MARGIN = (width - ITEM_WIDTH) / 2;
 
 type Plan = {
@@ -16,7 +22,7 @@ type Plan = {
   features: string[];
 };
 
-const PlansScreen = () => {
+export default function PlansCarouselComponent() {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -46,7 +52,7 @@ const PlansScreen = () => {
         data={plans}
         keyExtractor={(item) => item.id.toString()}
         showsHorizontalScrollIndicator={false}
-        snapToInterval={ITEM_WIDTH + 10} 
+        snapToInterval={ITEM_WIDTH + 10}
         decelerationRate="fast"
         contentContainerStyle={{
           paddingHorizontal: SIDE_MARGIN,
@@ -66,6 +72,4 @@ const PlansScreen = () => {
       />
     </View>
   );
-};
-
-export default PlansScreen;
+}

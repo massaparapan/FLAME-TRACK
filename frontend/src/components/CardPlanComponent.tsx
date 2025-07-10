@@ -2,7 +2,7 @@ import { Button } from "@react-navigation/elements";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../constans/colors";
-import { userService } from "@/src/services/userService"; // 👈 Agregado
+import { userService } from "@/src/services/userService"; 
 
 type CardPlanProps = {
   title: string;
@@ -12,13 +12,13 @@ type CardPlanProps = {
   planId: number;
 };
 
-const CardPlanComponent = ({
+export default function PlansCarouselComponent({
   title,
   description,
   price,
   features,
   planId,
-}: CardPlanProps) => {
+}: CardPlanProps) {
   const handleContractPlan = async () => {
     await userService.updateUserPlan(planId);
   };
@@ -68,7 +68,7 @@ const CardPlanComponent = ({
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -144,5 +144,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
 });
-
-export default CardPlanComponent;

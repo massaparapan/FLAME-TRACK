@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ActivityIndicator,
-  StyleSheet,
-} from "react-native";
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 
 type Props = {
-  onSubmit: (
-    username: string,
-    email: string,
-    password: string
-  ) => Promise<void>;
+  onSubmit: (username: string, email: string, password: string) => Promise<void>;
   loading: boolean;
 };
 
 const RegisterForm: React.FC<Props> = ({ onSubmit, loading }) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail]     = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <View>
@@ -57,38 +46,29 @@ const RegisterForm: React.FC<Props> = ({ onSubmit, loading }) => {
         onPress={() => onSubmit(username, email, password)}
         disabled={loading}
       >
-        {loading ? (
-          <ActivityIndicator color="#fff" />
-        ) : (
-          <Text style={styles.buttonText}>Registrarse</Text>
-        )}
+        {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Registrarse</Text>}
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 35,
-    textAlign: "center",
-  },
+  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 35, textAlign: 'center' },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 8,
     padding: 12,
     marginBottom: 16,
   },
   button: {
-    backgroundColor: "#10B981",
+    backgroundColor: '#10B981',
     padding: 16,
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 25,
   },
-  buttonText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+  buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
 });
 
 export default RegisterForm;
