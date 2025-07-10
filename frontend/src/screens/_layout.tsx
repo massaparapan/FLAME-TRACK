@@ -5,6 +5,7 @@ import React from "react";
 import { StatusBar } from "react-native";
 import { colors } from "@/src/constans/colors";
 import { Ionicons } from "@expo/vector-icons";
+import QRScannerScreen from "./ReadQR";
 
 export type TabParamList = {
   Dashboard: undefined;
@@ -41,7 +42,7 @@ export default function Layout() {
         />
         <Tab.Screen
           name="Plans"
-          component={PlansScreen}
+          component={QRScannerScreen}
           options={{
             title: "Configuración",
             tabBarLabel: "Configuración",
