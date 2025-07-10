@@ -1,13 +1,15 @@
 import { Button } from "@react-navigation/elements";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../constans/colors";
+import { userService } from "@/src/services/userService"; // 👈 Agregado
 
 type CardPlanProps = {
   title: string;
   description: string;
   price: string;
   features: string[];
+  planId: number;
 };
 
 const CardPlanComponent = ({
@@ -15,7 +17,12 @@ const CardPlanComponent = ({
   description,
   price,
   features,
+  planId,
 }: CardPlanProps) => {
+  const handleContractPlan = async () => {
+    await userService.updateUserPlan(planId);
+  };
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.infoSection}>
@@ -55,7 +62,9 @@ const CardPlanComponent = ({
           )}
         </View>
 
-        <Button style={styles.contractButton}>Contratar</Button>
+        <Button style={styles.contractButton} onPress={handleContractPlan}>
+          Contratar
+        </Button>
       </View>
     </View>
   );

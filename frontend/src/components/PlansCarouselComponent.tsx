@@ -59,6 +59,7 @@ const PlansScreen = () => {
               description={item.description}
               price={item.price}
               features={item.features}
+              planId={item.id}
             />
           </View>
         )}
