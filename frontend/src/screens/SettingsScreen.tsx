@@ -1,8 +1,6 @@
 import React from "react";
-import PlansScreen from "../components/PlansCarouselComponent";
+import PlansCarouselComponent from "../components/PlansCarouselComponent";
 
-const SettingsScreen = () => {
-  return <PlansScreen />;
-};
-
-export default SettingsScreen;
+export default function SettingsScreen() {
+  return <PlansCarouselComponent />;
+}

@@ -1,11 +1,10 @@
 import DashboardScreen from "@/src/screens/DashboardScreen";
-import PlansScreen from "@/src/screens/SettingsScreen";
+import SettingsScreen from "@/src/screens/SettingsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StatusBar } from "react-native";
 import { colors } from "@/src/constans/colors";
 import { Ionicons } from "@expo/vector-icons";
-import QRScannerScreen from "./ReadQR";
 
 export type TabParamList = {
   Dashboard: undefined;
@@ -42,7 +41,7 @@ export default function Layout() {
         />
         <Tab.Screen
           name="Plans"
-          component={QRScannerScreen}
+          component={SettingsScreen}
           options={{
             title: "Configuración",
             tabBarLabel: "Configuración",

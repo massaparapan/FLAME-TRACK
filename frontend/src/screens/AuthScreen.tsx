@@ -17,7 +17,7 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type AuthScreenNavigationProp = NativeStackNavigationProp<any>;
 
-const AuthScreen = () => {
+export default function AuthScreen() {
   const navigation = useNavigation<AuthScreenNavigationProp>();
 
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -84,7 +84,7 @@ const AuthScreen = () => {
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -115,5 +115,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default AuthScreen;

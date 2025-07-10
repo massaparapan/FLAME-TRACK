@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginFormComponent";
 import { authService } from "../services/authService";
 import type { loginRequest } from "../types/types";
 
-const LoginScreen = () => {
+export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (username: string, password: string) => {
@@ -12,7 +12,6 @@ const LoginScreen = () => {
     try {
       const request: loginRequest = { username, password };
       await authService.login(request);
-      Alert.alert("Bienvenido");
     } catch (error) {
       Alert.alert(
         "Error",
@@ -28,6 +27,4 @@ const LoginScreen = () => {
       <LoginForm onSubmit={handleLogin} loading={loading} />
     </SafeAreaView>
   );
-};
-
-export default LoginScreen;
+}
