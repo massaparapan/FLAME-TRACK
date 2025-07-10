@@ -41,6 +41,6 @@ class Device(Base):
     __tablename__ = "devices"
    
     id = Column(Integer, primary_key=True, index=True)
-    access_token = Column(String(255), unique=False, nullable=False)
+    access_token = Column(String(255), unique=True, nullable=False)
    
     users = relationship("User", secondary=user_devices, back_populates="devices")
