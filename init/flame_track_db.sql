@@ -24,7 +24,7 @@ CREATE TABLE users (
   username VARCHAR(45) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  plan_id INT NULL,
+  plan_id INT NOT NULL,
   CONSTRAINT fk_users_plans FOREIGN KEY(plan_id) REFERENCES plans(id)
 );
 
