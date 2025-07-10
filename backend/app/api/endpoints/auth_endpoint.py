@@ -22,6 +22,7 @@ async def register(req: auth_schema.Register, db: Session = Depends(get_db)):
     token = auth_crud.create_access_token(
         data={"sub": user.username}
     )
+    
     return {"access_token": token}
 
 @router.post("/login")
