@@ -17,110 +17,122 @@ const CardPlanComponent = ({
   features,
 }: CardPlanProps) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Icon
-          name={title === "FREE" ? "star-outline" : "star"}
-          size={32}
-          color={colors.primary[500]}
-        />
-        <Text style={styles.title}>{title}</Text>
+    <View style={styles.cardContainer}>
+      <View style={styles.infoSection}>
+        <View style={styles.planHeader}>
+          <Icon
+            name={title === "FREE" ? "star-outline" : "star"}
+            size={24}
+            color={colors.primary[500]}
+          />
+          <Text style={styles.planTitle}>{title}</Text>
+        </View>
+
+        <Text style={styles.planDescription} numberOfLines={2}>
+          {description}
+        </Text>
+
+        <View style={styles.featuresList}>
+          {features.map((feature, index) => (
+            <View key={index} style={styles.featureItem}>
+              <Icon name="check-circle" size={14} color={colors.primary[500]} />
+              <Text style={styles.featureText} numberOfLines={1}>
+                {feature}
+              </Text>
+            </View>
+          ))}
+        </View>
       </View>
 
-      <View style={styles.priceContainer}>
-        <Text style={styles.price}>{price}</Text>
-        {title === "FREE" && (
-          <Text style={styles.priceSubtext}>Para siempre</Text>
-        )}
-        {title === "PRO" && <Text style={styles.priceSubtext}>CLP / mes</Text>}
-      </View>
+      <View style={styles.actionSection}>
+        <View style={styles.priceInfo}>
+          <Text style={styles.priceText}>{price}</Text>
+          {title === "FREE" && (
+            <Text style={styles.priceSubtitle}>Para siempre</Text>
+          )}
+          {title === "PRO" && (
+            <Text style={styles.priceSubtitle}>CLP / mes</Text>
+          )}
+        </View>
 
-      <Text style={styles.description}>{description}</Text>
-
-      <View style={styles.featuresContainer}>
-        <Text style={styles.featuresTitle}>Características:</Text>
-        {features.map((feature, index) => (
-          <View key={index} style={styles.featureItem}>
-            <Icon name="check-circle" size={18} color={colors.primary[500]} />
-            <Text style={styles.featureText}>{feature}</Text>
-          </View>
-        ))}
+        <Button style={styles.contractButton}>Contratar</Button>
       </View>
-        
-      <Button>
-        Contratar
-      </Button>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  cardContainer: {
+    flexDirection: "row",
     borderColor: colors.primary[500],
     borderWidth: 2,
-    padding: 20,
-    margin: 12,
-    borderRadius: 16,
+    borderRadius: 14,
     backgroundColor: "#fff",
+    padding: 12,
+    marginVertical: 8,
+    marginHorizontal: 5,
+    height: 200,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.07,
+    shadowRadius: 3,
     elevation: 3,
   },
-  header: {
+  infoSection: {
+    flex: 3,
+    paddingRight: 10,
+    justifyContent: "space-between",
+  },
+  planHeader: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 12,
-    gap: 8,
+    gap: 6,
+    marginBottom: 6,
   },
-  title: {
+  planTitle: {
     fontWeight: "bold",
-    fontSize: 24,
-    color: colors.primary[500],
-  },
-  priceContainer: {
-    alignItems: "center",
-    marginBottom: 16,
-  },
-  price: {
-    fontWeight: "bold",
-    fontSize: 32,
-    color: colors.primary[500],
-  },
-  priceSubtext: {
-    fontSize: 14,
-    color: colors.primary[500],
-    marginTop: 4,
-  },
-  description: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#666",
-    marginBottom: 20,
-    lineHeight: 22,
-  },
-  featuresContainer: {
-    marginBottom: 20,
-  },
-  featuresTitle: {
-    fontWeight: "600",
     fontSize: 18,
     color: colors.primary[500],
-    marginBottom: 12,
+  },
+  planDescription: {
+    fontSize: 13,
+    color: "#666",
+    lineHeight: 18,
+  },
+  featuresList: {
+    marginTop: 6,
   },
   featureItem: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 8,
-    gap: 10,
+    gap: 6,
+    marginBottom: 4,
   },
   featureText: {
-    fontSize: 15,
+    fontSize: 12,
     color: "#555",
-    flex: 1,
-    lineHeight: 20,
+    flexShrink: 1,
+  },
+  actionSection: {
+    width: "auto",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  priceInfo: {
+    alignItems: "center",
+  },
+  priceText: {
+    fontWeight: "bold",
+    fontSize: 24,
+    color: colors.primary[500],
+  },
+  priceSubtitle: {
+    fontSize: 11,
+    color: colors.primary[500],
+  },
+  contractButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
   },
 });
 
