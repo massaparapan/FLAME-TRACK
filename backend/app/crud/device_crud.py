@@ -7,10 +7,10 @@ from app.schemas import device_schema
 from app.models import models
 
 def create_device(db: Session, device: device_schema.DeviceCreate) -> models.Device:
-    token_access = device.token_access
+    access_token = device.access_token
     
     db_device = models.Device(
-        token_access=token_access
+        access_token=access_token
     )
     
     db.add(db_device)

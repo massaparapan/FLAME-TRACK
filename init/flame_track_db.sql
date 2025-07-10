@@ -15,7 +15,7 @@ CREATE TABLE plans (
 
 CREATE TABLE devices (
   id SERIAL PRIMARY KEY,
-  token_access VARCHAR(255) NOT NULL UNIQUE
+  access_token VARCHAR(255) NOT NULL
 );
 -- ####################################################################
 

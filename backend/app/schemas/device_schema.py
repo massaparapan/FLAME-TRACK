@@ -3,7 +3,7 @@ from typing import Optional, List
 
 
 class DeviceBase(BaseModel):
-    token_access: str
+    access_token: str
 
 class DeviceCreate(DeviceBase):
     pass
