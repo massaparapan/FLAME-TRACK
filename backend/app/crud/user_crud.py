@@ -1,23 +1,9 @@
 from sqlalchemy.orm import Session
 from app.models import models
-from app.schemas import user_schema
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session, joinedload
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-def create_user(db: Session, user: user_schema.UserCreate):
-    hashed_password = pwd_context.hash(user.password)
-    db_user = models.User(
-        username=user.username,
-        email=user.email,
-        password=hashed_password,
-        plan_id=user.plan_id,
-    )
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
 
 def get_user_by_id(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
@@ -29,13 +15,13 @@ def get_user_by_username(db: Session, username: str):
     return db.query(models.User).filter(models.User.username == username).first()
 
 def get_user_current_plan(db: Session, user_id: int):
-    user = db.query(models.User).filter(models.User.id == user_id).first()
+    user = get_user_by_id(db, user_id)
     if user and user.plan_id:
         return db.query(models.Plan).filter(models.Plan.id == user.plan_id).first()
     return None
 
 def update_user_plan(db: Session, user_id: int, plan_id: int):
-    user = db.query(models.User).filter(models.User.id == user_id).first()
+    user = get_user_by_id(user_id)
     if user:
         plan = db.query(models.Plan).filter(models.Plan.id == plan_id).first()
         if plan:
@@ -44,3 +30,10 @@ def update_user_plan(db: Session, user_id: int, plan_id: int):
             db.refresh(user)
             return user
     return None
+
+def get_user(db: Session, username: str):
+    try:
+        user = db.query(models.User).filter(models.User.username == username).first()
+        return user
+    finally:
+        db.close()
