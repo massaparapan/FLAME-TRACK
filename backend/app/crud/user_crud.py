@@ -21,7 +21,7 @@ def get_user_current_plan(db: Session, user_id: int):
     return None
 
 def update_user_plan(db: Session, user_id: int, plan_id: int):
-    user = get_user_by_id(user_id)
+    user = get_user_by_id(db, user_id)
     if user:
         plan = db.query(models.Plan).filter(models.Plan.id == plan_id).first()
         if plan:
