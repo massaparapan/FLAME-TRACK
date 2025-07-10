@@ -1,5 +1,3 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
 export interface registerRequest {
   username: string;
   email: string;
