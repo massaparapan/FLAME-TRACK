@@ -4,6 +4,8 @@
 -- #                                                          #
 -- ############################################################
 
+-- ############################################################
+
 CREATE TABLE plans (
   id SERIAL PRIMARY KEY,
   name VARCHAR(45) NOT NULL,
@@ -13,11 +15,14 @@ CREATE TABLE plans (
   dashboard_id VARCHAR(255) NOT NULL 
 );
 
+-- ############################################################
+
 CREATE TABLE devices (
   id SERIAL PRIMARY KEY,
   access_token VARCHAR(255) NOT NULL UNIQUE
 );
--- ####################################################################
+
+-- ############################################################
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -28,7 +33,7 @@ CREATE TABLE users (
   CONSTRAINT fk_users_plans FOREIGN KEY(plan_id) REFERENCES plans(id)
 );
 
--- ####################################################################
+-- ############################################################
 
 CREATE TABLE user_devices (
   user_id INT NOT NULL,
@@ -38,9 +43,14 @@ CREATE TABLE user_devices (
   CONSTRAINT fk_user_devices_devices FOREIGN KEY(device_id) REFERENCES devices(id) ON DELETE CASCADE
 );
 
--- ####################################################################
+-- ############################################################
 
--- Se crea los planes
+-- ############################################################
+-- #                                                          #
+-- #               INSERCIÓN DE DATOS INICIALES               #
+-- #                                                          #
+-- ############################################################
+
 INSERT INTO plans (name, price, description, dashboard_id, features) VALUES
 ('FREE', 'GRATIS', 'Acceso básico a las funciones principales.', 'df348fc0-47b2-11f0-a76f-af9873efe2ab?publicId=43598140-420e-11f0-a760-c34b83368612', 
  '["Monitoreo en tiempo real.", "Notificaciones push.", "Visualización intensidad."]'::json),
