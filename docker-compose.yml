@@ -11,5 +11,28 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d
+  backend: 
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: flame_track_backend
+    ports:
+      - '8000:8000'
+    volumes:
+      ./backend:/app
+    depends_on:
+    - db
+  frontend: 
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: flame_track_frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      ./frontend:/app
+    depends_on:
+    - db
+    - backend
 volumes:
   db_data:
