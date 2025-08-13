@@ -1,11 +1,8 @@
 from pydantic import BaseModel
-from typing import Optional, Any
 
-class AuthBase(BaseModel):
+class Register(BaseModel):
     username: str
     email: str
-
-class Register(AuthBase):
     password: str
     plan_id: int
 
