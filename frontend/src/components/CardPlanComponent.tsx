@@ -2,7 +2,7 @@ import { Button } from "@react-navigation/elements";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../constans/colors";
-import { userService } from "@/src/services/userService"; 
+import { userService } from "@/src/services/userService";
 
 type CardPlanProps = {
   title: string;
@@ -42,7 +42,7 @@ export default function PlansCarouselComponent({
         <View style={styles.featuresList}>
           {features.map((feature, index) => (
             <View key={index} style={styles.featureItem}>
-              <Icon name="check-circle" size={14} color={colors.primary[500]} />
+              <Icon name="check-circle" size={20} color={colors.primary[500]} />
               <Text style={styles.featureText} numberOfLines={1}>
                 {feature}
               </Text>
@@ -54,12 +54,9 @@ export default function PlansCarouselComponent({
       <View style={styles.actionSection}>
         <View style={styles.priceInfo}>
           <Text style={styles.priceText}>{price}</Text>
-          {title === "FREE" && (
-            <Text style={styles.priceSubtitle}>Para siempre</Text>
-          )}
-          {title === "PRO" && (
-            <Text style={styles.priceSubtitle}>CLP / mes</Text>
-          )}
+          <Text style={styles.priceSubtitle}>
+            {title === "FREE" ? "Para siempre" : "CLP / mes"}
+          </Text>
         </View>
 
         <Button style={styles.contractButton} onPress={handleContractPlan}>

@@ -1,6 +1,7 @@
 import { getStoredToken } from "./storage";
 
-const API_BASE_URL = "http://192.168.1.7:8000/api";
+// IP of your computer
+const API_BASE_URL = "http://192.168.1.3:8000/api";
 
 export const API_URL = API_BASE_URL;
 
