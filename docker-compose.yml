@@ -5,11 +5,11 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_DB: flame_db
+      POSTGRES_DB: flame_track_db
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d
   backend: 
     build: 
@@ -19,9 +19,9 @@ services:
     ports:
       - '8000:8000'
     volumes:
-      ./backend:/app
+      - ./backend:/app
     depends_on:
-    - db
+      - db
   frontend: 
     build: 
       context: ./frontend
@@ -30,9 +30,9 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      ./frontend:/app
+      - ./frontend:/app
     depends_on:
-    - db
-    - backend
+      - db
+      - backend
 volumes:
-  db_data:
+  db:

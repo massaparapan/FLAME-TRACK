@@ -1,4 +1,4 @@
-# FLAME TRACK
+# Flame Track
 
 **Un proyecto de Internet de las Cosas para la prevención de incendios, desarrollado para el curso ICC153-1 de la Universidad de la Frontera.**
 

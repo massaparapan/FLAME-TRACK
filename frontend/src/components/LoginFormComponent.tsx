@@ -47,7 +47,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, loading }) => {
         {loading ? (
           <ActivityIndicator color="#fff" />
         ) : (
-          <Text style={styles.buttonText}>Entrar</Text>
+          <Text style={styles.buttonText}>Iniciar Sesión</Text>
         )}
       </TouchableOpacity>
     </View>

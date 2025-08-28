@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 import os
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = "postgresql://admin:admin@localhost:5432/flame_db"
+    DATABASE_URL: str = "postgresql://admin:admin@db:5432/flame_track_db"
     SECRET_KEY: str = "admin"
 
 settings = Settings()

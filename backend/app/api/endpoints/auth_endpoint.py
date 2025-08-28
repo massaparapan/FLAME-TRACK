@@ -1,9 +1,7 @@
-from datetime import timedelta
 from fastapi import APIRouter, Depends, HTTPException, status
 from requests import Session
 from app.db.session import get_db
 from app.crud import auth_crud, user_crud
-from app.models import models
 from app.schemas import auth_schema
 
 router = APIRouter()
